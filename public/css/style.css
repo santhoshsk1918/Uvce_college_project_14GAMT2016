@@ -1,0 +1,32 @@
+.chatArea{
+  height: 430px;
+  overflow: auto;
+  border: 1px solid #eee;
+}
+
+.chatSender{
+  height: 70px;
+  overflow: auto;
+  border: 1px solid #eee;
+}
+.chat{
+  height:500px
+}
+.userNames{
+  height: 500px;
+  overflow: auto;
+  border: 1px solid #eee;
+}
+.myMessage{
+  text-align: right;
+  background-color: #eee;
+}
+.recivedMessage{
+  text-align: right;
+  background-color: #b3b3b3;
+}
+.availableName{
+  height: 40px;
+  border-bottom: 2px solid #4747d1;
+  background-color: #c2c2f0;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+
+<h2 class="page-header">Register</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+{{#if registrationError}}
+  {{#each registrationError}}
+    <div class="alert alert-danger" role="alert">{{msg}}</div>
+  {{/each}}
+{{/if}}
+
+<form method="post">
+  <div class="form-group">
+    <span class="text-danger"><span	id="buTypeError"></span></span>
+   <label>I Am a</label>
+    <select class="form-control" name="buType" id="buType" value="{{Data.usertype}}">
+      <option value="-1">Please select Bu TYPE</option>
+        <option value="Seller">User</option>
+        <option value="AavishkAdmin">Admin</option>
+    </select>
+  </div>
+
+   <div class="form-group">
+     <span class="text-danger"><span	id="buTypeError"></span></span>
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="name" value="{{Data.name}}" id="name">
+  </div>
+  <div class="form-group">
+    <span class="text-danger"><span	id="usernameError"></span></span>
+    <label>Username</label>
+    <input type="text" class="form-control" placeholder="Username" name="username" id="username" value="{{Data.username}}">
+  </div>
+   <div class="form-group">
+     <span class="text-danger"><span	id="emailError"></span></span>
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Email" value="{{Data.email}}" name="email" id="email">
+  </div>
+  <div class="form-group">
+    <span class="text-danger"><span	id="passwordError"></span></span>
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password" value="{{Data.password}}" id="password">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" placeholder="Password" name="password2" value="{{Data.password2}}" id="password2">
+  </div>
+  <a class="sm-brand brand-button" onclick="submitForm();">Submit</a>
+</form>
+</div>
+
+<script type="text/javascript">
+
+  if(validate()){
+  function submitForm(){
+    document.forms[0].action = "/users/register";
+    document.forms[0].submit();
+
+  }
+}
+
+//Need To Write Validation on Client Side and set val using addRequirement Page as base error parser
+function validate(){
+  return true;
+}
+
+</script>

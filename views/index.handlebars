@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+      <form id="searchForm"
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+    var socket = io.connect();
+    var messageForm = $("#send-message");
+    var messageBox = $("#message");
+    var chat = $("#chat");
+
+    messageForm.submit(function(e){
+        e.preventDefault();
+        socket.emit('sent-message',messageBox.val());
+        messageBox.val('');
+    });
+    socket.on('new-message',function(data){
+        chat.append(data + "<br />")
+    });
+});
+
+</script>

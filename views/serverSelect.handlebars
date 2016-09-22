@@ -1,0 +1,70 @@
+<style>
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <form name="serverSelectForm" class="form avform" id="serverSelectForm" method="post">
+      <input type="hidden" id="serverId" name="serverId" />
+
+      <div class="modal fade" id="myModal" role="dialog"
+      data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" style="color: #EC6952;">Please Select The Server you want
+              to Join</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                    {{#if serverSelect}}
+                      {{#each serverSelect}}
+                          <a href="#" style="cursor: pointer;"
+                          onclick="serverPick('{{_id}}')"
+                          class="btn btn-info btn-block">{{proxyServername}}</a>
+                          <br />
+                        {{/each}}
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+  $('#myModal').modal('show');
+});
+
+function serverPick(serverId){
+  $("#serverId").val(serverId);
+  document.forms['serverSelectForm'].action = "/serverSelect";
+  document.forms['serverSelectForm'].submit();
+  return false;
+}
+</script>
