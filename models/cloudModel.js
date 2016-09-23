@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var cloudDatabaseSchema = mongoose.Schema({
-    keyWord: {
+    keyword: {
     type: String,
     index:true
   },
-  serverName:{
+  data:{
     type:String
   },
   cloudPopularity:{
@@ -19,12 +19,16 @@ var cloudDatabaseSchema = mongoose.Schema({
 
 var cloudDatabase = module.exports = mongoose.model('cloudDatabase', cloudDatabaseSchema);
 
+module.exports.saveCloudDatabase = function(newServerData, callback){
+	newServerData.save(callback);
+}
+
 module.exports.getCloudDatabaseList = function(server, callback){
 	var query = {};
-	serverSelect.find(query, callback).sort({cloudPopularity:1});
+	cloudDatabase.find(query, callback).sort({cloudPopularity:1});
 }
 
 module.exports.getCloudDatabaseforKeyWord = function(keyword, callback){
-	var query = {keyWord:keyWord};
-	serverSelect.find(query, callback);
+	var query = {keyword:keyword};
+	cloudDatabase.find(query, callback);
 }

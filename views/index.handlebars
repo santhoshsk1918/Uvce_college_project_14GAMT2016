@@ -1,28 +1,19 @@
 <div class="container-fluid">
   <div class="row">
-      <form id="searchForm"
+    <form id="searchForm" method="get" action="/search/searchData">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-1"></div>
+          <div class="col-md-7">
+            <input class="form-control" type="text" id="searchField" name="searchField"></input>
+          </div>
+          <div class="col-md-3">
+            <input type="submit" class="sm-button brand-button"></input>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-
-<script>
-
-$(document).ready(function() {
-
-    var socket = io.connect();
-    var messageForm = $("#send-message");
-    var messageBox = $("#message");
-    var chat = $("#chat");
-
-    messageForm.submit(function(e){
-        e.preventDefault();
-        socket.emit('sent-message',messageBox.val());
-        messageBox.val('');
-    });
-    socket.on('new-message',function(data){
-        chat.append(data + "<br />")
-    });
-});
-
-</script>

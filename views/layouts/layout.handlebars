@@ -10,81 +10,63 @@
   <link rel="icon" href="/images/favicon.ico">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 <body>
 
-    <nav class="navbar header app">
-      <div class="header">
-        <div class="container">
-          <div class="menuTop">
-              <div class="col-md-3 logo">
-                <a href="/"><img alt="aavishk" src="/images/fwdas.jpg"></a>
-              </div>
-              <div class="col-md-9 align-right menu">
-                <ul class="navbar-right">
-                  {{#if user}}
-                  <li role="presentation"><a href="/">Dashboard</a></li>
-                  <li role="presentation"><a href="/users/logout">Logout</a></li>
-                  {{else}}
-                  <li role="presentation"><a href="/users/login">Login</a></li>
-                  <li role="presentation"><a href="/users/register">Register</a></li>
-                  {{/if}}
-                </ul>
-              </div>
+  <nav class="navbar header app">
+    <div class="header">
+      <div class="container">
+        <div class="menuTop">
+          <div class="col-md-3 logo">
+            <a href="/"><img alt="aavishk" src="/images/fwdas.jpg"></a>
           </div>
-        </div>
-      </div>
-    </nav>
-    <!-- <div class="header clearfix">
-    <div class="row">
-    <div class="col-md-9">
-    <nav>
-    <ul class="nav nav-pills pull-right">
-    {{#if user}}
-    <li role="presentation"><a href="/">Dashboard</a></li>
-    <li role="presentation"><a href="/users/logout">Logout</a></li>
-    {{else}}
-    <li role="presentation"><a href="/users/login">Login</a></li>
-    <li role="presentation"><a href="/users/register">Register</a></li>
-    {{/if}}
-  </ul>
-</nav>
-</div>
-<div class="col-md-3 pull-left">
-<img alt="aavishk" src="/images/aavishk-logo.jpg">
-</div>
-</div>
-</div> -->
-<div class="app-container">
-  <div class="container-fluid">
-    <div class="body">
-      <div class="main">
-
-        <div class="row">
-          <div class="col-md-12">
-            {{#if success_msg}}
-            <div class="alert alert-success">{{success_msg}}</div>
-            {{/if}}
-
-            {{#if error_msg}}
-            <div class="alert alert-danger">{{error_msg}}</div>
-            {{/if}}
-
-            {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-            {{/if}}
-
-            {{{body}}}
+          <div class="col-md-9 align-right menu">
+            <ul class="navbar-right">
+              {{#if user}}
+              <li role="presentation"><a href="/">Home</a></li>
+              <li role="presentation"><a href="/search/addData">Add Data</a></li>
+              <li role="presentation"><a href="/search/serverCacheList">Server Cache List</a></li>
+              <li role="presentation"><a href="/users/logout">Logout</a></li>
+              {{else}}
+              <li role="presentation"><a href="/users/login">Login</a></li>
+              <li role="presentation"><a href="/users/register">Register</a></li>
+              {{/if}}
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <footer class="footer">
-    <p>&copy; FWDAS UVCE Project By Santhosh S Kashyap (14GAMT2016) </p>
-  </footer>
+  </nav>
+  <div class="app-container">
+    <div class="container-fluid">
+      <div class="body">
+        <div class="main">
 
-</body>
-</html>
+          <div class="row">
+            <div class="col-md-12">
+              {{#if success_msg}}
+              <div class="alert alert-success">{{success_msg}}</div>
+              {{/if}}
+
+              {{#if error_msg}}
+              <div class="alert alert-danger">{{error_msg}}</div>
+              {{/if}}
+
+              {{#if error}}
+              <div class="alert alert-danger">{{error}}</div>
+              {{/if}}
+
+              {{{body}}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; FWDAS UVCE Project By Santhosh S Kashyap (14GAMT2016) </p>
+    </footer>
+
+  </body>
+  </html>

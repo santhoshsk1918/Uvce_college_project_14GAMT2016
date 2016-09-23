@@ -9,10 +9,11 @@ var serverSelect = require('../models/serverSelectModel');
 
 routes.get('/',ensureAuthenticated,checkServer,function(req,res){
   var server =  req.session.passport.server
-  if(typeof server !== 'undefined' || server == ""){
-    res.render('index');
-  }else{
+  if(typeof server == 'undefined' || server == ""){
     res.redirect('/serverSelect');
+  }else{
+    res.render('index');
+
   }
 });
 
@@ -41,10 +42,10 @@ function ensureAuthenticated(req, res, next){
 
 function checkServer(req,res,next){
   var server =  req.session.passport.server
-  if(typeof server !== 'undefined' || server == ""){
-    res.render(serverList);
-  }else{
+  if(typeof server == 'undefined' || server == ""){
     res.redirect("/serverSelect");
+  }else{
+    return next();
   }
 }
 

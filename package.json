@@ -18,6 +18,8 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "log4js": "^0.6.38",
+    "moment": "^2.15.1",
     "mongodb": "*",
     "mongoose": "*",
     "passport": "*",

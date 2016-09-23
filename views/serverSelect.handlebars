@@ -38,12 +38,12 @@
                   <div class="col-md-2"></div>
                   <div class="col-md-8">
                     {{#if serverSelect}}
-                      {{#each serverSelect}}
-                          <a href="#" style="cursor: pointer;"
-                          onclick="serverPick('{{_id}}')"
-                          class="btn btn-info btn-block">{{proxyServername}}</a>
-                          <br />
-                        {{/each}}
+                    {{#each serverSelect}}
+                    <a href="#" style="cursor: pointer;"
+                    onclick="serverPick('{{_id}}')"
+                    class="btn btn-info btn-block">{{proxyServername}}</a>
+                    <br />
+                    {{/each}}
                     {{/if}}
                   </div>
                 </div>
