@@ -32,3 +32,10 @@ module.exports.getCloudDatabaseforKeyWord = function(keyword, callback){
 	var query = {keyword:keyword};
 	cloudDatabase.find(query, callback);
 }
+
+module.exports.updateCloudData = function(id,updatedCloudData,callback){
+    var query = {_id:id}
+    cloudDatabase.findOneAndUpdate(query,{$set:{
+      
+    }},callback);
+}
