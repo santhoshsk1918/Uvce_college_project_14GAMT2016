@@ -25,7 +25,7 @@ module.exports.saveCloudDatabase = function(newServerData, callback){
 
 module.exports.getCloudDatabaseList = function(server, callback){
 	var query = {};
-	cloudDatabase.find(query, callback).sort({cloudPopularity:1});
+	cloudDatabase.find(query, callback).sort({cloudPopularity:-1});
 }
 
 module.exports.getCloudDatabaseforKeyWord = function(keyword, callback){
@@ -36,6 +36,6 @@ module.exports.getCloudDatabaseforKeyWord = function(keyword, callback){
 module.exports.updateCloudData = function(id,updatedCloudData,callback){
     var query = {_id:id}
     cloudDatabase.findOneAndUpdate(query,{$set:{
-      
+
     }},callback);
 }

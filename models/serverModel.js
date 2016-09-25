@@ -24,7 +24,7 @@ var serverDatabase = module.exports = mongoose.model('serverDatabase', serverDat
 
 module.exports.getServerCacheList = function(serverId,callback){
     var query = {serverId:serverId};
-    serverDatabase.find(query,callback);
+    serverDatabase.find(query,callback).sort({serverPopularity:-1});
 }
 
 module.exports.saveToServer = function(newServerData,callback){
@@ -39,4 +39,8 @@ module.exports.updateServerData = function(id,updatedServerData,callback){
 module.exports.getServerDatabaseonKeyword = function(keyword,serverId, callback){
 	var query = {$and:[{keyword:keyword},{serverId:serverId}]};
 	serverDatabase.find(query, callback);
+}
+
+module.exports.removeServerData = function(serverData){
+  serverData.remove();
 }

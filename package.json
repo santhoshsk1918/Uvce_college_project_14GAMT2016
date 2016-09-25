@@ -9,6 +9,7 @@
   "author": "Santhosh S Kashyap",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.1",
     "bcryptjs": "*",
     "body-parser": "*",
     "connect-flash": "*",
